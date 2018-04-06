@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table border=1>
+        <tr><th>討論主題</th><th>發表者</th><th>發表時間</th><th>回覆時間</th></tr>
+        {% for topic in topics %}
+        <tr>
+          <td><a href="/show/{{topic.id}}">{{topic.subject}}</a></td>
+          <td>{{topic.poster}}</td>
+          <td>{{topic.publication_date}}</td>
+          <td>{{topic.reply_date}}</td>
+        </tr>
+        {% endfor %}
+</table>
+{% endblock %}

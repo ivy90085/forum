@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <BR>
+  <a href="/reply/{{topic.id}}">回覆討論</a>
+<table border=1>
+  <tr><td>發表者</td><td>{{topic.poster}}</td></tr>
+  <tr><td>發表日期</td><td>{{topic.publication_date}}</td></tr>
+  <tr><td>討論主題</td><td>{{topic.subject}}</td></tr>
+  <tr><td valign=top>討論內容</td><td>{{topic.content|linebreaks}}</td></tr>
+</table>
+{% for reply in replys %}
+<hr>
+<table border=1>
+  <tr><td>發表者</td><td>{{reply.poster}}</td></tr>
+  <tr><td>發表日期</td><td>{{reply.publication_date}}</td></tr>
+  <tr><td valign=top>回覆內容</td><td>{{reply.content|linebreaks}}</td></tr>
+</table>
+{% endfor %}
+{% endblock %}
